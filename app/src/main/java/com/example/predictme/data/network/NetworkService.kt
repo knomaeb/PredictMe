@@ -7,19 +7,22 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import javax.inject.Singleton
 
-@Singleton
-interface NetworkService {
-
+interface NetworkServiceForAge{
     @GET()
     suspend fun getAge(
         @Query("name") name: String
     ) : PersonAge
+}
 
+@Singleton
+interface NetworkServiceForGender {
     @GET()
     suspend fun getGender(
         @Query("name") name: String
     ) : PersonGender
+}
 
+interface NetworkServiceForNationality{
     @GET()
     suspend fun getNationality(
         @Query("name") name: String
