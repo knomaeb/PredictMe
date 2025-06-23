@@ -7,8 +7,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import javax.inject.Singleton
 
+@Singleton
 interface NetworkServiceForAge{
-    @GET()
+    @GET("https://api.agify.io")
     suspend fun getAge(
         @Query("name") name: String
     ) : PersonAge
@@ -16,14 +17,15 @@ interface NetworkServiceForAge{
 
 @Singleton
 interface NetworkServiceForGender {
-    @GET()
+    @GET("https://api.genderize.io")
     suspend fun getGender(
         @Query("name") name: String
     ) : PersonGender
 }
 
+@Singleton
 interface NetworkServiceForNationality{
-    @GET()
+    @GET("https://api.nationalize.io")
     suspend fun getNationality(
         @Query("name") name: String
     ) : PersonNationality
